@@ -7,6 +7,8 @@ _w_no_deprecated = select({
     "//conditions:default": [],
 })
 
+_w_cplusplus14 = ["-std=c++14"]
+
 config_setting(
     name = "linux",
     constraint_values = [
@@ -612,7 +614,7 @@ boost_library(
 
 boost_library(
     name = "filesystem",
-    copts = _w_no_deprecated,
+    copts = _w_no_deprecated + _w_cplusplus14,
     deps = [
         ":config",
         ":functional",
@@ -1491,6 +1493,7 @@ boost_library(
         ":predef",
         ":utility",
     ],
+    copts = _w_cplusplus14
 )
 
 boost_library(
